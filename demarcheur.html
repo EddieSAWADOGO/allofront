@@ -72,27 +72,38 @@
              ============================================== -->
         <section id="broker-view" class="view-section active">
 
-            <!-- Hero Header Text (Full Width at top) -->
-            <div class="hero-text-container" style="max-width: 900px; margin: 0 auto 48px; text-align: center;">
-                <h1 class="hero-title">Boostez votre activité de démarcheur avec <span style="color: var(--color-primary)">allodemarcheur</span></h1>
-                <p class="hero-paragraph" style="margin-left: auto; margin-right: auto;">
-                    Recevez des demandes de clients qualifiés directement par SMS. Plus besoin de chercher, les clients viennent à vous en un clic.
-                </p>
-                <div class="hero-actions" style="display: flex; justify-content: center;">
-                    <a href="#broker-register-form-container" class="btn btn-primary btn-lg">Rejoindre le réseau gratuitement</a>
+            <!-- Hero Header Image (Banner style) -->
+            <div class="broker-hero-banner" style="width: 100%; height: 300px; position: relative; border-radius: 12px; overflow: hidden; margin-bottom: 40px; box-shadow: var(--shadow-lg);">
+                <img src="dem.png" alt="Démarcheur Pro" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="broker-hero-banner-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; padding: 40px; text-align: center;">
+                    <div style="max-width: 800px; color: white; width: 100%;">
+                        <h2 style="font-weight: 800; margin-bottom: 12px;">Optimisez votre activité immobilière.</h2>
+                        <p style="font-size: 1.1rem; opacity: 0.9;">Recevez des opportunités qualifiées directement sur votre téléphone par SMS.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Section: Présentation de la plateforme pour les démarcheurs -->
+            <!-- Hero Header Text -->
+            <div class="hero-text-container" style="max-width: 900px; margin: 0 auto 48px; text-align: center;">
+                <h1 class="hero-title">Boostez votre visibilité avec <span style="color: var(--color-primary)">allodemarcheur</span></h1>
+                <p class="hero-paragraph" style="margin-left: auto; margin-right: auto;">
+                    Rejoignez le réseau n°1 des démarcheurs au Burkina Faso. Nous vous connectons aux clients qui recherchent activement des biens dans votre zone.
+                </p>
+                <div class="hero-actions" style="display: flex; justify-content: center;">
+                    <a href="#broker-register-form-container" class="btn btn-primary btn-lg">S'inscrire gratuitement</a>
+                </div>
+            </div>
+
+            <!-- Section: Présentation -->
             <section class="presentation-section">
                 <div class="section-header">
-                    <h2 class="section-title">Comment allodemarcheur vous aide</h2>
+                    <h2 class="section-title">Comment allodemarcheur vous accompagne</h2>
                 </div>
                 <div class="presentation-container">
                     <div class="presentation-text">
-                        <p><strong style="color: var(--color-primary)">allodemarcheur</strong> est l'outil indispensable du démarcheur moderne au Burkina Faso. Nous centralisons les demandes de recherche de maisons, appartements et terrains pour vous les redistribuer instantanément.</p>
-                        <p>En vous inscrivant, vous accédez à un flux continu de prospects sérieux qui cherchent activement à louer ou acheter. Vous recevez leurs coordonnées et leurs besoins précis par SMS, vous permettant d'être le premier à les contacter.</p>
-                        <p>Fini les journées à prospecter dans le vide. Concentrez-vous sur vos visites et vos ventes, <strong style="color: var(--color-primary)">allodemarcheur</strong> s'occupe de vous trouver les clients.</p>
+                        <p><strong style="color: var(--color-primary)">allodemarcheur</strong> est l'outil indispensable pour tout professionnel de l'immobilier moderne au Burkina Faso.</p>
+                        <p>Dès qu'un client exprime un besoin, nous vous alertons par SMS. Vous pouvez ainsi le contacter rapidement, organiser les visites et conclure vos transactions plus facilement.</p>
+                        <p>Inscrivez-vous dès aujourd'hui pour intégrer notre annuaire certifié et recevoir vos premiers leads.</p>
                     </div>
                     <div class="presentation-image-container">
                         <img src="demarcheur.png" alt="Démarcheur professionnel utilisant allodemarcheur">
@@ -398,9 +409,9 @@
                         </div>
 
                         <div class="form-group" style="text-align: left; margin-top: 20px;">
-                            <label class="checkbox-container" style="display: flex; gap: 10px; cursor: pointer; align-items: flex-start;">
-                                <input type="checkbox" id="accept-terms" required style="width: auto; margin-top: 4px;">
-                                <span style="font-size: 0.8125rem; color: var(--color-text-muted); line-height: 1.4;">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="accept-terms" class="custom-checkbox-input" required>
+                                <span class="checkbox-text">
                                     J'accepte les <a href="cgu.html" style="color: var(--color-primary); font-weight: 600;">Conditions d'Utilisation</a> et la <a href="confidentialite.html" style="color: var(--color-primary); font-weight: 600;">Politique de Confidentialité</a>.
                                 </span>
                             </label>
