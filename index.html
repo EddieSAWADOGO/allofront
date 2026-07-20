@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>allodemarcheur | Trouvez un bien immobilier au Burkina Faso en 1 clic</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="allodemarcheur.jpeg">
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link to Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <a href="index.html">
+                    <img src="allodemarcheur.jpeg" alt="Logo allodemarcheur" class="logo-img">
+                </a>
+            </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link active">Accueil</a>
+                <a href="annuaires.html" class="nav-link">Annuaire</a>
+                <a href="demarcheur.html" class="nav-link">Démarcheur</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper">
+
+        <!-- ==============================================
+             PARTICULIER VIEW (Visitor)
+             ============================================== -->
+        <section id="particular-view" class="view-section active">
+
+            <!-- Hero Header Text (Full Width at top) -->
+            <div class="hero-text-container" style="max-width: 900px; margin: 0 auto 48px; text-align: center;">
+                <h1 class="hero-title"><span style="white-space: nowrap">Grâce à <span style="color: var(--color-primary)">allodemarcheur</span></span>, touchez plus de 500 démarcheurs en un clic.</h1>
+                <p class="hero-paragraph" style="margin-left: auto; margin-right: auto;">
+                    Dites-nous ce que vous cherchez, et nous connectons votre besoin directement aux démarcheurs certifiés de votre ville pour vous aider à louer ou acheter rapidement.
+                </p>
+            </div>
+
+            <!-- Hero Grid for Ticket and Image -->
+            <div class="hero-grid">
+                <!-- Left: Ticket Form Area -->
+                <div class="hero-form-container">
+                    <!-- Ticket Component -->
+                    <div class="ticket-wrapper">
+                        <div class="ticket-body">
+                            <h2 style="font-size: 1.125rem; font-weight: 700; color: var(--color-bg-dark); margin-bottom: 8px; text-align: center;">Remplissez votre ticket de demande</h2>
+                            <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 24px; text-align: center;">Dites-nous ce que vous cherchez et nous diffusons votre besoin immédiatement.</p>
+                            <form id="request-ticket-form">
+                                <!-- Prestation Selection -->
+                                <div class="form-group">
+                                    <label class="form-label">Type de prestation</label>
+                                    <div class="segmented-control" id="prestation-control">
+                                        <input type="radio" id="prestation-rent" name="prestation" value="Location" checked>
+                                        <label for="prestation-rent">Location</label>
+
+                                        <input type="radio" id="prestation-buy" name="prestation" value="Achat">
+                                        <label for="prestation-buy">Achat</label>
+                                    </div>
+                                </div>
+
+                                <!-- Bien Type Selection -->
+                                <div class="form-group">
+                                    <label class="form-label">Type de bien</label>
+                                    <div class="segmented-control" id="bien-control">
+                                        <input type="radio" id="bien-house" name="bien_type" value="Maison" checked>
+                                        <label for="bien-house">Maison / Villa</label>
+
+                                        <input type="radio" id="bien-land" name="bien_type" value="Terrain">
+                                        <label for="bien-land" id="label-land">Terrain</label>
+                                    </div>
+                                    <p class="form-hint" id="land-hint" style="display: none;">Les terrains sont disponibles uniquement à l'achat.</p>
+                                </div>
+
+                                <!-- Ville Selection (Fixed to Ouaga) -->
+                                <div class="form-group">
+                                    <label for="city-select" class="form-label">Ville concernée</label>
+                                    <div class="select-wrapper">
+                                        <select id="city-select" required>
+                                            <option value="Ouagadougou" selected>Ouagadougou</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Budget -->
+                                <div class="form-group">
+                                    <label for="visitor-budget" class="form-label">Budget maximum (FCFA)</label>
+                                    <input type="text" id="visitor-budget" placeholder="Ex: 50 000 / mois" required>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="form-group">
+                                    <label for="visitor-phone" class="form-label">Votre numéro de téléphone</label>
+                                    <div class="phone-input-wrapper">
+                                        <span class="phone-prefix">+226</span>
+                                        <input type="tel" id="visitor-phone" placeholder="70 00 00 00" required pattern="[0-9]{8}" maxlength="8" title="Le numéro doit comporter 8 chiffres">
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 8px;">
+                                    <button type="submit" class="btn btn-primary btn-block" style="width: 100%; max-width: 300px;">Diffuser ma demande</button>
+
+                                    <div class="ticket-footer-notice" style="width: 100%;">
+                                        <svg class="notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                        </svg>
+                                        <span>Limite d'une seule demande par jour et par numéro.</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="ticket-barcode-area">
+                            <div class="barcode"></div>
+                            <div class="ticket-id">REF: ADM-2026-BF</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Illustration Card -->
+                <div class="hero-visual-card">
+                    <div class="visual-card-inner">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Recherche immobilière Burkina" class="visual-card-img">
+                        <div class="visual-card-content">
+                            <div class="visual-badge">DIRECT & RAPIDE</div>
+                            <h3 class="visual-card-title">Votre futur chez-vous vous attend.</h3>
+                            <p class="visual-card-desc">Nous connectons votre demande aux agents les plus proches de votre zone de recherche en temps réel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Présentation de la plateforme -->
+            <section class="presentation-section">
+                <div class="section-header">
+                    <h2 class="section-title">Présentation de la plateforme</h2>
+                </div>
+                <div class="presentation-container">
+                    <div class="presentation-text">
+                        <p><strong style="color: var(--color-primary)">allodemarcheur</strong> est la plateforme qui a été conçue spécialement pour vous, afin de vous permettre de joindre plusieurs démarcheurs en un seul clic.</p>
+                        <p>Notre objectif est simple : vous faciliter la recherche de maisons ou de locaux dans votre ville en vous connectant directement aux démarcheurs immobiliers certifiés. Que vous souhaitiez louer ou acheter, nous vous simplifions tout le processus.</p>
+                        <p>Que vous soyez à la recherche d'un <strong>célibatorium</strong>, d'un <strong>magasin</strong>, d'un <strong>entrepôt</strong>, d'un <strong>terrain</strong> à acheter, d'un <strong>bureau</strong> ou de tout autre type de bien immobilier, nous vous mettons facilement en contact avec les meilleurs démarcheurs certifiés du pays.</p>
+                    </div>
+                    <div class="presentation-image-container">
+                        <!-- Une image illustrant la modernité et la confiance immobilière -->
+                        <img src="multi-biens.png" alt="Innovation Immobilière au Burkina Faso">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comment ça marche Section -->
+            <section class="how-it-works-section">
+                <div class="section-header">
+                    <h2 class="section-title">Comment ça marche ?</h2>
+                    <p class="section-subtitle">Un parcours simple et rapide pour trouver votre bien immobilier en quelques clics.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-badge">1</div>
+                        <div class="step-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Exprimez votre besoin</h3>
+                        <p class="step-description">Remplissez le formulaire ticket ci-dessus en indiquant le type de bien, la ville, votre budget et votre numéro de téléphone.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">2</div>
+                        <div class="step-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Analyse & Diffusion SMS</h3>
+                        <p class="step-description">Notre plateforme cible automatiquement les démarcheurs agréés de la ville concernée et leur envoie votre demande par SMS.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-badge">3</div>
+                        <div class="step-icon-container">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Mise en relation directe</h3>
+                        <p class="step-description">Les démarcheurs disposant de biens correspondants vous recontactent directement sur votre téléphone.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Annuaire Section Preview -->
+            <section class="directory-section">
+                <div class="section-header">
+                    <h2 class="section-title">L'annuaire des démarcheurs</h2>
+                    <p class="section-subtitle">Une sélection de professionnels vérifiés par notre équipe.</p>
+                </div>
+
+                <div class="directory-grid" id="directory-grid">
+                    <!-- Cards will be injected by JavaScript (Max 5) -->
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="annuaires.html" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">Consulter l'annuaire complet</a>
+                </div>
+            </section>
+
+            <hr style="border: 0; height: 1px; background: var(--color-border); margin: 60px 0;">
+
+            <!-- Avis des utilisateurs -->
+            <section class="testimonials-section">
+                <div class="section-header">
+                    <h2 class="section-title">Avis des utilisateurs</h2>
+                    <p class="section-subtitle">Découvrez les retours de ceux qui ont utilisé la plateforme.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card-v2">
+                        <div class="testimonial-v2-header">
+                            <div class="testimonial-v2-stars">★★★★★</div>
+                            <span class="testimonial-v2-date">Il y a 2 jours</span>
+                        </div>
+                        <p class="testimonial-v2-text">"J'ai déposé ma demande à 10h, à 14h j'avais déjà visité 2 maisons correspondant à mon budget à Gounghin. Incroyable !"</p>
+                        <div class="testimonial-v2-footer">
+                            <div class="testimonial-v2-avatar">AF</div>
+                            <div class="testimonial-v2-info">
+                                <span class="testimonial-v2-name">Abdoul F.</span>
+                                <span class="testimonial-v2-city">Gounghin, Ouagadougou</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card-v2">
+                        <div class="testimonial-v2-header">
+                            <div class="testimonial-v2-stars">★★★★★</div>
+                            <span class="testimonial-v2-date">Il y a 1 semaine</span>
+                        </div>
+                        <p class="testimonial-v2-text">"Simple et efficace. On ne se fait plus harceler par 1000 personnes, seulement par ceux qui ont ce qu'on veut."</p>
+                        <div class="testimonial-v2-footer">
+                            <div class="testimonial-v2-avatar">ST</div>
+                            <div class="testimonial-v2-info">
+                                <span class="testimonial-v2-name">Sali T.</span>
+                                <span class="testimonial-v2-city">Pissy, Ouagadougou</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card-v2">
+                        <div class="testimonial-v2-header">
+                            <div class="testimonial-v2-stars">★★★★☆</div>
+                            <span class="testimonial-v2-date">Il y a 2 semaines</span>
+                        </div>
+                        <p class="testimonial-v2-text">"Enfin une solution sérieuse au Burkina. J'ai trouvé mon terrain sans passer par des intermédiaires douteux."</p>
+                        <div class="testimonial-v2-footer">
+                            <div class="testimonial-v2-avatar">DO</div>
+                            <div class="testimonial-v2-info">
+                                <span class="testimonial-v2-name">Drissa O.</span>
+                                <span class="testimonial-v2-city">Somgandé, Ouagadougou</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Laisser un commentaire -->
+            <section class="feedback-section">
+                <div class="feedback-container">
+                    <h2 class="section-title">Votre avis nous intéresse</h2>
+                    <p class="section-subtitle">Dites-nous ce que vous pensez de la plateforme.</p>
+                    <form id="feedback-form" class="feedback-form-styled">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Prénom & Nom</label>
+                                <input type="text" placeholder="Ex: Abdoul F." required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Ville / Quartier</label>
+                                <input type="text" placeholder="Ex: Gounghin, Ouaga" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Votre note</label>
+                            <div class="rating-stars-input">
+                                <input type="radio" name="rating" value="5" id="star5" checked><label for="star5">★</label>
+                                <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
+                                <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
+                                <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
+                                <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Votre commentaire</label>
+                            <textarea placeholder="Partagez votre expérience avec nous..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Publier mon avis</button>
+                    </form>
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-branding">
+                <div class="logo-area">
+                    <img src="allodemarcheur.jpeg" alt="Logo allodemarcheur" class="logo-img footer-logo">
+                </div>
+                <p class="footer-tagline">La plateforme n°1 au Burkina qui connecte les démarcheurs professionnels et les chercheurs de biens immobiliers en un clic.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h5 class="link-group-title">Particuliers</h5>
+                    <ul>
+                        <li><a href="index.html">Faire une demande</a></li>
+                        <li><a href="annuaires.html">Annuaire</a></li>
+                        <li><a href="faq.html">Comment ça marche</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h5 class="link-group-title">Démarcheurs</h5>
+                    <ul>
+                        <li><a href="demarcheur.html">Rejoindre le réseau</a></li>
+                        <li><a href="demarcheur.html#packs">Acheter des packs SMS</a></li>
+                        <li><a href="demarcheur.html#dashboard">Mon Compte</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h5 class="link-group-title">Assistance & Contact</h5>
+                    <ul>
+                        <li><a href="https://wa.me/22600000000" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Contact WhatsApp
+                        </a></li>
+                        <li><a href="mailto:support@allodemarcheur.bf">support@allodemarcheur.bf</a></li>
+                        <li><a href="cgu.html">Conditions d'Utilisation</a></li>
+                        <li><a href="confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 allodemarcheur. Fait à Ouagadougou. 🇧🇫</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==============================================
+         MODALS & SIMULATIONS
+         ============================================= -->
+
+    <!-- Profile Detail Modal -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="modal-box profile-modal-box">
+            <button class="modal-close-btn" id="close-profile-modal" style="position: absolute; top: 12px; right: 12px; z-index: 10;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div id="profile-modal-content">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert / Information Modal -->
+    <div class="modal-overlay" id="alert-modal">
+        <div class="modal-box alert-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="alert-title">Notification</h3>
+                <button class="modal-close-btn" id="close-alert-modal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="alert-icon-container" id="alert-icon-theme">
+                    <!-- Icon will be injected by JavaScript based on type -->
+                </div>
+                <p class="alert-text" id="alert-message">Message d'alerte.</p>
+                <div class="alert-extra" id="alert-extra-content" style="display: none;">
+                    <!-- Simulates visual feedback (e.g. SMS contents) -->
+                </div>
+                <button class="btn btn-primary" id="btn-alert-ok">D'accord</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript logic -->
+    <script src="app.js"></script>
+</body>
+</html>
