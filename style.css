@@ -2353,11 +2353,7 @@ select {
     font-size: 1.1rem;
 }
 
-@media (max-width: 600px) {
-    .hero-search-actions {
-        display: none !important;
-    }
-}
+
 
 .modal-box {
     background-color: var(--color-bg-base);
@@ -2380,16 +2376,16 @@ select {
     max-width: 500px; /* Increased width */
     width: 100%;
     padding: 32px;
-    background-color: #111827;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #ffffff;
+    border: 1px solid var(--color-border);
     position: relative;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
 }
 
 .profile-modal-box .modal-close-btn {
-    color: white;
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-bg-dark);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     width: 36px;
     height: 36px;
@@ -2400,7 +2396,7 @@ select {
 }
 
 .profile-modal-box .modal-close-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .profile-top {
@@ -2418,13 +2414,13 @@ select {
     margin: 0;
     font-size: 1.5rem; /* Larger font */
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-bg-dark);
 }
 
 .profile-info-left p {
     margin: 4px 0 0;
     font-size: 0.9rem;
-    color: #d1d5db;
+    color: var(--color-text-muted);
 }
 
 .profile-avatar-right {
@@ -2442,7 +2438,7 @@ select {
 }
 
 .profile-pro-card-area .form-label {
-    color: #ffffff;
+    color: var(--color-bg-dark);
     font-size: 0.8rem;
     margin-bottom: 10px;
     display: block;
@@ -2453,8 +2449,8 @@ select {
     max-height: 300px; /* Much larger height */
     object-fit: contain;
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    background-color: #f8fafc;
     cursor: zoom-in; /* Indicate it can be expanded/viewed better */
 }
 
@@ -2508,6 +2504,13 @@ select {
     padding: 20px;
     width: 100%;
     overflow-x: hidden;
+}
+
+.modal-body button[type="submit"] {
+    display: flex;
+    margin: 20px auto 0;
+    min-width: 200px;
+    justify-content: center;
 }
 
 .form-group select,
@@ -2824,7 +2827,7 @@ select {
         padding: 20px 10px;
         margin: 0 auto;
         overflow-wrap: break-word;
-        background-color: #111827 !important;
+        background-color: #ffffff !important;
     }
 
     .profile-top {
@@ -2944,8 +2947,8 @@ select {
         box-sizing: border-box !important;
         display: flex !important;
         flex-direction: column !important;
-        background-color: #111827 !important;
-        color: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
         max-height: 90vh !important;
         min-width: 0 !important;
         /* Empêcher tout décalage à droite */
@@ -2954,12 +2957,12 @@ select {
     }
 
     .modal-title, .modal-header, .modal-body, .form-label {
-        color: #ffffff !important;
+        color: #000000 !important;
         background-color: transparent !important;
     }
 
     .modal-header {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
     }
 
     .modal-box *, .modal-box *::before, .modal-box *::after {
@@ -3048,6 +3051,14 @@ select {
     .form-row:not(.file-upload-row) {
         display: block !important;
         width: 100% !important;
+    }
+
+    .modal-body button[type="submit"] {
+        width: fit-content !important;
+        min-width: 220px !important;
+        margin: 25px auto 10px !important;
+        display: flex !important;
+        justify-content: center !important;
     }
 
     /* Forcer les options à rester dans le cadre si possible (dépend du navigateur) */
