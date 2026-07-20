@@ -355,6 +355,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // --- FAQ Tab Switching ---
+    const faqVisitorBtn = document.getElementById("faq-visitor-btn");
+    const faqBrokerBtn = document.getElementById("faq-broker-btn");
+    const faqVisitorList = document.getElementById("faq-visitor-list");
+    const faqBrokerList = document.getElementById("faq-broker-list");
+
+    if (faqVisitorBtn && faqBrokerBtn) {
+        faqVisitorBtn.addEventListener("click", () => {
+            faqVisitorBtn.classList.add("active");
+            faqBrokerBtn.classList.remove("active");
+            faqVisitorList.classList.add("active");
+            faqVisitorList.style.display = "block";
+            faqBrokerList.classList.remove("active");
+            faqBrokerList.style.display = "none";
+        });
+        faqBrokerBtn.addEventListener("click", () => {
+            faqBrokerBtn.classList.add("active");
+            faqVisitorBtn.classList.remove("active");
+            faqBrokerList.classList.add("active");
+            faqBrokerList.style.display = "block";
+            faqVisitorList.classList.remove("active");
+            faqVisitorList.style.display = "none";
+        });
+    }
+
     // --- Payment Logic ---
     const paymentModal = document.getElementById("payment-modal");
     if (paymentModal) {

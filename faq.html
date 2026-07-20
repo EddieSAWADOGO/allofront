@@ -52,8 +52,16 @@
                 <p class="section-subtitle">Toutes les réponses à vos questions, que vous soyez un particulier ou un démarcheur professionnel.</p>
             </div>
 
-            <div style="margin-top: 60px;">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">Pour les Particuliers</h2>
+            <!-- FAQ Switch Tabs -->
+            <div class="pricing-tabs-container" style="margin-top: 40px;">
+                <div class="pricing-tabs-pills">
+                    <button class="pricing-tab-btn active" id="faq-visitor-btn">Pour les Particuliers</button>
+                    <button class="pricing-tab-btn" id="faq-broker-btn">Pour les Démarcheurs</button>
+                </div>
+            </div>
+
+            <!-- Particuliers FAQ List -->
+            <div class="pricing-grid-container active" id="faq-visitor-list" style="display: block;">
                 <div class="faq-accordion">
                     <div class="faq-item">
                         <button class="faq-question">
@@ -79,6 +87,17 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">
+                            <span>Comment puis-je contacter un démarcheur ?</span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Après avoir soumis votre demande, vous recevrez un SMS avec le numéro du démarcheur sélectionné par notre algorithme. Vous pourrez alors le contacter directement pour organiser une visite.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
                             <span>Combien de temps faut-il pour recevoir une réponse ?</span>
                             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -88,17 +107,7 @@
                             <p>Dès que vous soumettez votre ticket, les démarcheurs reçoivent l'alerte par SMS instantanément. En général, les premiers démarcheurs vous rappellent dans les 15 à 30 minutes qui suivent, selon la disponibilité des biens dans votre zone.</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>Mes informations personnelles sont-elles protégées ?</span>
-                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
-                            </svg>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Oui, votre numéro de téléphone n'est partagé qu'avec un nombre limité de démarcheurs certifiés sélectionnés par notre algorithme pour répondre à votre besoin précis. Il n'est jamais rendu public sur le site.</p>
-                        </div>
-                    </div>
+                    
                     <div class="faq-item">
                         <button class="faq-question">
                             <span>Que faire si un démarcheur me demande de l'argent avant une visite ?</span>
@@ -107,24 +116,46 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Nous recommandons la plus grande vigilance. Les frais de visite sont une pratique courante au Burkina, mais ne payez jamais de "frais de dossier" ou de "réservation" importants sans avoir vu le bien et vérifié l'identité du démarcheur. Signalez-nous tout comportement suspect via le support WhatsApp.</p>
+                            <p>Nous recommandons la plus grande vigilance. Les frais de visite sont une pratique courante, mais ne payez jamais de "frais de dossier" ou de "réservation" importants sans avoir vu le bien et vérifié l'identité du démarcheur. Signalez-nous tout comportement suspect via le support WhatsApp.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div style="margin-top: 80px;">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">Pour les Démarcheurs</h2>
-                <div class="faq-accordion">
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>Comment fonctionne l'attribution des prospects ?</span>
+                            <span>Puis-je modifier ma demande après l'avoir soumise ?</span>
                             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Lorsqu'une demande est validée, la plateforme sélectionne un pourcentage de démarcheurs disposant de crédits payants (ex: 60%) et de démarcheurs en formule gratuite (ex: 40%). L'algorithme utilise un système de file tournante : dès que vous recevez un SMS, votre profil est replacé en fin de liste pour laisser le tour aux autres.</p>
+                            <p>Actuellement, il n'est pas possible de modifier une demande en cours. Si vos critères changent, nous vous conseillons de soumettre une nouvelle demande.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Démarcheurs FAQ List -->
+            <div class="pricing-grid-container" id="faq-broker-list" style="display: none;">
+                <div class="faq-accordion">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Comment puis-je m'inscrire en tant que démarcheur ?</span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Pour vous inscrire, rendez-vous sur la page "Démarcheur" et remplissez le formulaire d'inscription avec vos informations personnelles et professionnelles. Une fois votre compte validé, vous pourrez commencer à recevoir des opportunités.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Quels documents sont nécessaires pour s'inscrire ?</span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Vous devez fournir une photo lisible de votre CNIB ou de votre carte professionnelle, ainsi qu'une photo de profil claire pour inspirer confiance aux clients.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -135,7 +166,7 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Dès votre inscription validée, vous disposez de compteurs d'opportunités gratuits (Achat et Location). Ceux-ci sont réinitialisés et rechargés automatiquement chaque mois par l'administration. Les compteurs payants sont rechargés immédiatement dès que vous achetez un pack en ligne par Mobile Money.</p>
+                            <p>Dès votre inscription validée, vous disposez de compteurs d'opportunités gratuits.  Les compteurs payants sont rechargés immédiatement dès que vous achetez un pack par Mobile Money.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -146,7 +177,18 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Afin de limiter les coûts d'envoi de SMS automatiques et d'éviter les requêtes abusives, les démarcheurs sont limités à 2 consultations de soldes gratuites par semaine. Au-delà, l'envoi est bloqué jusqu'à la semaine suivante.</p>
+                            <p>Afin de limiter les coûts d'envoi de SMS, les démarcheurs sont limités à 2 consultations de soldes gratuites par semaine. Au-delà, l'envoi est bloqué jusqu'à la semaine suivante.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Comment changer mes zones d'activité ?</span>
+                            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Contactez notre support via WhatsApp avec votre numéro de téléphone de démarcheur pour mettre à jour vos zones d'activité.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -157,20 +199,56 @@
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Non, les quatre compteurs (Opportunités gratuites Achat, Opportunités gratuites Location, Opportunités payantes Achat, Opportunités payantes Location) sont totalement indépendants. Une demande de location décrémente uniquement votre crédit Location, et une demande d'achat décrémente uniquement votre crédit Achat.</p>
+                            <p>Non, les compteurs Achat et Location sont totalement indépendants. Une demande de location décrémente uniquement votre crédit Location, et inversement.</p>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">
-                            <span>Comment puis-je améliorer ma visibilité dans l'annuaire ?</span>
+                            <span>Que se passe-t-il si je perds mon téléphone ?</span>
                             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </button>
                         <div class="faq-answer">
-                            <p>Plus vous recevez d'avis positifs de la part des utilisateurs, plus votre profil remonte dans l'annuaire. Assurez-vous également d'avoir une photo de profil professionnelle et des informations à jour sur vos zones d'activité.</p>
+                            <p>Vos crédits sont liés à votre numéro de téléphone. Si vous perdez votre carte SIM, faites un duplicata chez votre opérateur pour continuer à recevoir les alertes. Si vous changez de numéro, contactez le support pour transférer vos crédits.</p>
                         </div>
                     </div>
+                    
+                </div>
+            </div>
+
+            <!-- Ce que nous ne sommes pas (Disclaimer) -->
+            <div style="margin-top: 80px; padding: 40px; background-color: var(--color-primary-light); border-radius: var(--radius-md); border: 1px dashed var(--color-primary);">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 24px; color: var(--color-primary-hover);">Ce que allodemarcheur n'est PAS</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas une Agence Immobilière</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">Nous ne possédons aucun des biens listés. Nous sommes uniquement une plateforme de mise en relation technique entre vous et des indépendants.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas un Employeur</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">Les démarcheurs sont des professionnels indépendants. Ils ne sont ni salariés, ni représentants officiels de la plateforme.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas un Intermédiaire Financier</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">Nous ne gérons pas les frais de visite, les cautions ou les commissions. Ces transactions se font directement entre vous et le démarcheur.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas un Expert Juridique</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">Nous ne vérifions pas la validité des titres fonciers ou des contrats de bail. Il est de votre responsabilité de vérifier les documents officiels devant les autorités compétentes.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas une Garantie de Résultat</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">La plateforme facilite la rencontre, mais ne garantit pas que vous trouverez le bien idéal ou que le démarcheur conclura la vente.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="font-size: 0.9375rem; font-weight: 700; margin-bottom: 8px;">❌ Pas Responsable des Litiges</h4>
+                        <p style="font-size: 0.8125rem; color: var(--color-text-muted);">En cas de désaccord, fraude ou mauvais service d'un démarcheur sur le terrain, notre rôle se limite à l'exclusion du profil fautif de notre annuaire.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 20px; background: white; border-radius: var(--radius-sm); text-align: center;">
+                    <p style="font-size: 0.875rem; font-weight: 600; color: var(--color-bg-dark);">En résumé : allodemarcheur vous fournit le contact, vous gérez le contrat. 🤝</p>
                 </div>
             </div>
         </section>
@@ -221,46 +299,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Profile Detail Modal -->
-    <div class="modal-overlay" id="profile-modal">
-        <div class="modal-box profile-modal-box">
-            <button class="modal-close-btn" id="close-profile-modal" style="position: absolute; top: 12px; right: 12px; z-index: 10;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-            <div id="profile-modal-content">
-                <!-- Content injected by JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Alert / Information Modal -->
-    <div class="modal-overlay" id="alert-modal">
-        <div class="modal-box alert-box">
-            <div class="modal-header">
-                <h3 class="modal-title" id="alert-title">Notification</h3>
-                <button class="modal-close-btn" id="close-alert-modal">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <div class="alert-icon-container" id="alert-icon-theme">
-                    <!-- Icon will be injected by JavaScript based on type -->
-                </div>
-                <p class="alert-text" id="alert-message">Message d'alerte.</p>
-                <div class="alert-extra" id="alert-extra-content" style="display: none;">
-                    <!-- Simulates visual feedback (e.g. SMS contents) -->
-                </div>
-                <button class="btn btn-primary" id="btn-alert-ok">D'accord</button>
-            </div>
-        </div>
-    </div>
 
     <script src="app.js"></script>
 </body>
