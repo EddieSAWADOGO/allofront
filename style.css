@@ -1868,6 +1868,62 @@ select {
     margin-bottom: 20px;
 }
 
+/* Legal Pages Styles */
+.legal-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 10px;
+}
+
+.legal-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    padding: 40px;
+    box-shadow: var(--shadow-sm);
+    color: var(--color-text-main);
+}
+
+.legal-card h2 {
+    font-size: 1.5rem;
+    color: var(--color-bg-dark);
+    margin-bottom: 16px;
+}
+
+.legal-card section {
+    margin-bottom: 32px;
+}
+
+.legal-card p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.legal-card ul {
+    margin-left: 20px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* Disclaimer Box (FAQ page) */
+.disclaimer-box {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background-color: var(--color-primary-light);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-primary);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    .disclaimer-box {
+        margin-top: 60px;
+        padding: 24px 16px;
+    }
+}
+
 /* ==========================================================================
    FOOTER SECTION
    ========================================================================== */
@@ -2543,18 +2599,36 @@ select {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 8px 16px;
     }
 
     .modal-overlay {
-        padding: 16px;
+        padding: 10px;
+    }
+
+    .modal-body {
+        padding: 15px;
     }
 
     .profile-modal-box {
-        padding: 24px 16px;
+        padding: 20px 10px;
     }
 
     .legal-card {
-        padding: 24px 16px !important;
+        padding: 20px 12px !important;
+    }
+
+    .legal-card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+    }
+
+    .legal-card section {
+        margin-bottom: 24px;
+    }
+
+    .legal-content {
+        margin: 20px auto !important;
     }
 
     .hero-title {
@@ -2562,7 +2636,7 @@ select {
     }
 
     .content-wrapper {
-        padding: 24px 16px;
+        padding: 20px 12px;
     }
 
     .form-row {
@@ -2570,12 +2644,44 @@ select {
         gap: 12px;
     }
 
+    /* Standardize card paddings on mobile for better horizontal space and vertical breath */
+    .step-card,
+    .pricing-card,
+    .benefit-card,
+    .register-card-v2,
+    .testimonial-card-v2,
+    .broker-card-info {
+        padding: 20px 12px;
+    }
+
+    /* Increase spacing between elements inside cards for "à l'aise" feeling */
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .pricing-card-header {
+        margin-bottom: 24px;
+    }
+
+    .pricing-card-credits {
+        margin-bottom: 20px;
+        padding: 12px;
+    }
+
+    .feedback-container {
+        padding: 24px 15px;
+    }
+
     .ticket-body {
-        padding: 24px 20px;
+        padding: 20px 12px;
     }
 
     .ticket-wrapper {
         box-shadow: var(--shadow-md);
+    }
+
+    .directory-grid {
+        gap: 24px;
     }
 
     .faq-question {
@@ -2588,10 +2694,16 @@ select {
     }
 
     .testimonial-card {
-        padding: 32px 20px 24px;
+        padding: 24px 15px 20px;
     }
 
     .testimonial-quote {
         font-size: 0.875rem;
+    }
+
+    .alert-extra {
+        padding: 12px;
+        font-size: 0.875rem;
+        margin-bottom: 16px;
     }
 }
