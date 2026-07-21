@@ -100,8 +100,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.getElementById("nav-links");
 
     if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
+        menuToggle.addEventListener("click", (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle("active");
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+
+        // Fermer le menu si on clique n'importe où ailleurs sur la page
+        document.addEventListener("click", (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove("active");
+            }
         });
     }
 
