@@ -530,19 +530,29 @@
                         <button type="submit" class="btn btn-primary" id="pay-submit-btn" style="padding: 14px 40px; font-weight: 700; font-size: 1rem; text-transform: uppercase;">Valider le paiement</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
 
-                <div class="payment-loading-state" id="payment-loading" style="display: none;">
-                    <div class="spinner"></div>
-                    <p>Transaction en cours...</p>
-                </div>
-
-                <div class="payment-success-state" id="payment-success" style="display: none;">
-                    <div class="success-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <!-- Payment Status Modal (Loading / Success) -->
+    <div class="modal-overlay" id="payment-status-modal">
+        <div class="modal-box" style="max-width: 400px;">
+            <div class="modal-body text-center" style="padding: 40px 20px;">
+                <div id="payment-status-loading">
+                    <div class="payment-loading-state">
+                        <div class="spinner"></div>
+                        <p style="margin-top: 15px; font-weight: 600;">Transaction en cours...</p>
                     </div>
-                    <h3>Rechargement réussi !</h3>
-                    <p>Vos opportunités ont été ajoutées à votre compte.</p>
-                    <button class="btn btn-primary" id="btn-close-success">Fermer</button>
+                </div>
+                <div id="payment-status-success" style="display: none;">
+                    <div class="payment-success-state">
+                        <div class="success-icon-wrapper" style="margin-bottom: 20px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="40" height="40"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 10px;">Rechargement réussi !</h3>
+                        <p style="color: var(--color-text-muted); margin-bottom: 25px;">Vos opportunités ont été ajoutées à votre compte.</p>
+                        <button class="btn btn-primary" id="btn-close-status-modal" style="width: 100%;">Fermer</button>
+                    </div>
                 </div>
             </div>
         </div>

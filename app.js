@@ -81,6 +81,30 @@ const mockBrokers = [
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
 
+    // --- Modal Definitions ---
+    const profileModal = document.getElementById("profile-modal");
+    const alertModal = document.getElementById("alert-modal");
+    const paymentModal = document.getElementById("payment-modal");
+    const paymentStatusModal = document.getElementById("payment-status-modal");
+    const rentModal = document.getElementById("rent-modal");
+    const buyModal = document.getElementById("buy-modal");
+
+    // Notification Elements
+    const alertTitle = document.getElementById("alert-title");
+    const alertMsg = document.getElementById("alert-message");
+    const alertIcon = document.getElementById("alert-icon-theme");
+    const alertExtra = document.getElementById("alert-extra-content");
+
+    // --- Global Click Listener for Modals ---
+    window.addEventListener("click", (e) => {
+        if (e.target === profileModal) profileModal.classList.remove("active");
+        if (e.target === alertModal) alertModal.classList.remove("active");
+        if (e.target === paymentModal) paymentModal.classList.remove("active");
+        if (e.target === paymentStatusModal) paymentStatusModal.classList.remove("active");
+        if (e.target === rentModal) rentModal.classList.remove("active");
+        if (e.target === buyModal) buyModal.classList.remove("active");
+    });
+
     // --- Global Numeric Input Restriction (Max 8 digits) ---
     document.addEventListener("input", (e) => {
         const target = e.target;
@@ -245,26 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setupAdvancedToggle("rent-advanced-toggle", "rent-quartier-group");
     setupAdvancedToggle("buy-advanced-toggle", "buy-quartier-group");
 
-    const profileModal = document.getElementById("profile-modal");
     const profileModalContent = document.getElementById("profile-modal-content");
     const closeProfileModal = document.getElementById("close-profile-modal");
 
     if (closeProfileModal) {
         closeProfileModal.addEventListener("click", () => profileModal.classList.remove("active"));
     }
-
-    // Close modal when clicking outside the box
-    window.addEventListener("click", (e) => {
-        if (e.target === profileModal) {
-            profileModal.classList.remove("active");
-        }
-        if (e.target === alertModal) {
-            alertModal.classList.remove("active");
-        }
-        if (paymentModal && e.target === paymentModal) {
-            paymentModal.classList.remove("active");
-        }
-    });
 
     function showBrokerDetails(broker) {
         if (!profileModal || !profileModalContent) return;
@@ -333,8 +343,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- Search Modals Logic ---
-    const rentModal = document.getElementById("rent-modal");
-    const buyModal = document.getElementById("buy-modal");
     const btnOpenRent = document.getElementById("btn-open-rent-modal");
     const btnOpenBuy = document.getElementById("btn-open-buy-modal");
     const btnCloseRent = document.getElementById("close-rent-modal");
@@ -380,15 +388,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (buyForm) {
         buyForm.addEventListener("submit", (e) => handleRequestSubmit(e, buyModal, "buy-phone"));
     }
-
-    // Update global click listener for new modals
-    window.addEventListener("click", (e) => {
-        if (e.target === profileModal) profileModal.classList.remove("active");
-        if (e.target === alertModal) alertModal.classList.remove("active");
-        if (e.target === paymentModal) paymentModal.classList.remove("active");
-        if (e.target === rentModal) rentModal.classList.remove("active");
-        if (e.target === buyModal) buyModal.classList.remove("active");
-    });
 
     // --- Broker Registration (Demarcheur Page) ---
     const brokerRegisterForm = document.getElementById("broker-register-form");
@@ -479,7 +478,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- Payment Logic ---
-    const paymentModal = document.getElementById("payment-modal");
     if (paymentModal) {
         document.querySelectorAll(".btn-buy-pack").forEach(btn => {
             btn.addEventListener("click", (e) => {
@@ -500,11 +498,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         document.getElementById("close-payment-modal").addEventListener("click", () => paymentModal.classList.remove("active"));
+
         document.getElementById("payment-checkout-form").addEventListener("submit", (e) => {
             e.preventDefault();
-            const form = e.target;
-            const loading = document.getElementById("payment-loading");
-            const success = document.getElementById("payment-success");
 
             // Check if all fields are present (simulated)
             const phoneRecharge = document.getElementById("payment-phone-recharge").value;
@@ -513,32 +509,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!phoneRecharge || !phoneOtp || !otpCode) return;
 
-            form.style.display = "none";
-            // Hide header and instructions during loading for cleaner look
-            const header = document.querySelector(".compact-checkout-header");
-            const instruction = document.querySelector(".ussd-instruction");
-            if (header) header.style.display = "none";
-            if (instruction) instruction.style.display = "none";
-
-            loading.style.display = "flex";
-            setTimeout(() => {
-                loading.style.display = "none";
-                success.style.display = "flex";
-            }, 2000);
-        });
-        document.getElementById("btn-close-success").addEventListener("click", () => {
-            // Reset modal for next use
-            const form = document.getElementById("payment-checkout-form");
-            form.style.display = "block";
-            form.reset();
-            const header = document.querySelector(".compact-checkout-header");
-            const instruction = document.querySelector(".ussd-instruction");
-            if (header) header.style.display = "flex";
-            if (instruction) instruction.style.display = "block";
-            document.getElementById("payment-success").style.display = "none";
-
+            // Hide the payment info modal
             paymentModal.classList.remove("active");
+
+            // Show the status modal with loader
+            if (paymentStatusModal) {
+                document.getElementById("payment-status-loading").style.display = "block";
+                document.getElementById("payment-status-success").style.display = "none";
+                paymentStatusModal.classList.add("active");
+
+                setTimeout(() => {
+                    document.getElementById("payment-status-loading").style.display = "none";
+                    document.getElementById("payment-status-success").style.display = "block";
+                }, 2000);
+            }
         });
+
+        const btnCloseStatus = document.getElementById("btn-close-status-modal");
+        if (btnCloseStatus) {
+            btnCloseStatus.addEventListener("click", () => {
+                paymentStatusModal.classList.remove("active");
+                // Reset form for next time
+                document.getElementById("payment-checkout-form").reset();
+            });
+        }
     }
 
     // --- FAQ Logic ---
@@ -553,12 +547,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // --- Global Notification / Alert ---
-    const alertModal = document.getElementById("alert-modal");
-    const alertTitle = document.getElementById("alert-title");
-    const alertMsg = document.getElementById("alert-message");
-    const alertIcon = document.getElementById("alert-icon-theme");
-    const alertExtra = document.getElementById("alert-extra-content");
-
     function showNotification(title, message, type = "success", extra = "") {
         if (!alertModal) return;
         alertTitle.textContent = title;
