@@ -105,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinks.classList.toggle("active");
         });
 
-        // Fermer le menu quand on clique sur un lien
-        navLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
+        // Fermer le menu quand on clique sur un lien (même si c'est un lien vers une ancre sur la même page)
+        navLinks.addEventListener("click", (e) => {
+            if (e.target.closest("a")) {
                 navLinks.classList.remove("active");
-            });
+            }
         });
 
         // Fermer le menu si on clique n'importe où ailleurs sur la page
