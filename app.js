@@ -143,6 +143,11 @@ document.addEventListener("DOMContentLoaded", () => {
             container.appendChild(card);
         });
 
+        // Add class for horizontal layout if on home page
+        if (container.id === "directory-grid") {
+            container.className = "directory-grid-horizontal";
+        }
+
         // Bind Detail Buttons
         container.querySelectorAll(".btn-view-profile").forEach(btn => {
             btn.addEventListener("click", (e) => {
@@ -152,6 +157,78 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    // --- Neighborhood Autocomplete Logic ---
+    function setupQuartierAutocomplete(inputId, resultsId) {
+        const input = document.getElementById(inputId);
+        const resultsContainer = document.getElementById(resultsId);
+
+        if (!input || !resultsContainer || typeof ouagaQuartiers === 'undefined') return;
+
+        input.addEventListener("input", () => {
+            const val = input.value.toLowerCase();
+            resultsContainer.innerHTML = "";
+            if (!val) {
+                resultsContainer.style.display = "none";
+                return;
+            }
+
+            const filtered = ouagaQuartiers.filter(q => q.toLowerCase().includes(val));
+            if (filtered.length > 0) {
+                filtered.forEach(q => {
+                    const div = document.createElement("div");
+                    div.textContent = q;
+                    div.addEventListener("click", () => {
+                        input.value = q;
+                        resultsContainer.style.display = "none";
+                    });
+                    resultsContainer.appendChild(div);
+                });
+                resultsContainer.style.display = "block";
+            } else {
+                resultsContainer.style.display = "none";
+            }
+        });
+
+        // Close results when clicking outside
+        document.addEventListener("click", (e) => {
+            if (e.target !== input && e.target !== resultsContainer) {
+                resultsContainer.style.display = "none";
+            }
+        });
+    }
+
+    setupQuartierAutocomplete("rent-quartier-input", "rent-quartier-results");
+    setupQuartierAutocomplete("buy-quartier-input", "buy-quartier-results");
+
+    // --- Advanced Options Toggle ---
+    function setupAdvancedToggle(toggleId, groupId) {
+        const toggle = document.getElementById(toggleId);
+        const group = document.getElementById(groupId);
+        if (toggle && group) {
+            toggle.addEventListener("change", () => {
+                if (toggle.checked) {
+                    group.style.display = "block";
+                } else {
+                    group.style.display = "none";
+                    // Optionnel : on vide le champ si on désactive l'option
+                    const input = group.querySelector("input");
+                    if (input) input.value = "";
+                }
+            });
+
+            // Gérer la réinitialisation du formulaire (ex: après soumission)
+            const form = toggle.closest("form");
+            if (form) {
+                form.addEventListener("reset", () => {
+                    group.style.display = "none";
+                });
+            }
+        }
+    }
+
+    setupAdvancedToggle("rent-advanced-toggle", "rent-quartier-group");
+    setupAdvancedToggle("buy-advanced-toggle", "buy-quartier-group");
 
     const profileModal = document.getElementById("profile-modal");
     const profileModalContent = document.getElementById("profile-modal-content");

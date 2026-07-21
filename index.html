@@ -57,8 +57,15 @@
             <!-- Navigation Links -->
             <nav class="nav-links" id="nav-links">
                 <a href="index.html" class="nav-link active">Accueil</a>
-                <a href="annuaires.html" class="nav-link">Annuaire</a>
-                <a href="demarcheur.html" class="nav-link">Démarcheur</a>
+                <a href="annuaires.html" class="nav-link">Listes démarcheurs</a>
+                <div class="nav-dropdown">
+                    <a href="demarcheur.html" class="nav-link">Espace Démarcheur</a>
+                    <div class="dropdown-content">
+                        <a href="demarcheur.html#broker-register-form-container">S'inscrire</a>
+                        <a href="demarcheur.html#packs">Payer un pack</a>
+                        <a href="demarcheur.html#dashboard">Voir son solde</a>
+                    </div>
+                </div>
                 <a href="faq.html" class="nav-link">FAQ</a>
             </nav>
         </div>
@@ -84,19 +91,19 @@
 
                 <!-- Left (Bottom on Mobile): Text and Search Buttons -->
                 <div class="hero-text-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <h1 class="hero-title">Touchez plus de <span style="color: var(--color-primary)">500 démarcheurs</span> en un clic.</h1>
-                    <p class="hero-paragraph">
-                        Indiquez-nous ce que vous recherchez, et nous diffusons votre demande instantanément aux démarcheurs certifiés de votre ville.
+                    <h1 class="hero-title big-title">Une seule demande,<br>plusieurs propositions de maisons ;<br>sans perdre de temps</h1>
+                    <p class="hero-paragraph highlight-paragraph">
+                        Touchez plus de 500 démarcheurs en un clic.
                     </p>
 
                     <div class="hero-search-actions">
                         <button class="btn btn-primary btn-lg" id="btn-open-rent-modal">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span>Je veux louer</span>
+                            <span>Trouver maison</span>
                         </button>
                         <button class="btn btn-secondary btn-lg" id="btn-open-buy-modal" style="border: 2px solid var(--color-primary); color: var(--color-primary);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span>Je veux acheter</span>
+                            <span>Trouver terrain</span>
                         </button>
                     </div>
                 </div>
@@ -168,16 +175,18 @@
             <!-- Annuaire Section Preview -->
             <section class="directory-section">
                 <div class="section-header">
-                    <h2 class="section-title">L'annuaire des démarcheurs</h2>
+                    <h2 class="section-title">Listes démarcheurs</h2>
                     <p class="section-subtitle">Une sélection de professionnels vérifiés par notre équipe.</p>
                 </div>
 
-                <div class="directory-grid" id="directory-grid">
-                    <!-- Cards will be injected by JavaScript (Max 5) -->
+                <div class="directory-horizontal-scroll">
+                    <div class="directory-grid-horizontal" id="directory-grid">
+                        <!-- Cards will be injected by JavaScript (Max 5) -->
+                    </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 30px;">
-                    <a href="annuaires.html" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">Consulter l'annuaire complet</a>
+                    <a href="annuaires.html" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">Consulter la liste complète</a>
                 </div>
             </section>
 
@@ -189,46 +198,48 @@
                     <h2 class="section-title">Avis des utilisateurs</h2>
                     <p class="section-subtitle">Découvrez les retours de ceux qui nous font confiance.</p>
                 </div>
-                <div class="testimonial-grid">
-                    <div class="testimonial-card-v2">
-                        <div class="testimonial-v2-header">
-                            <div class="testimonial-v2-stars">★★★★★</div>
-                            <span class="testimonial-v2-date">Il y a 2 jours</span>
-                        </div>
-                        <p class="testimonial-v2-text">"J'ai déposé ma demande le matin, et j'ai trouvé une maison l'après-midi même. Très efficace !"</p>
-                        <div class="testimonial-v2-footer">
-                            <div class="testimonial-v2-avatar">AF</div>
-                            <div class="testimonial-v2-info">
-                                <span class="testimonial-v2-name">Abdoul F.</span>
-                                <span class="testimonial-v2-city">Ouagadougou</span>
+                <div class="testimonial-horizontal-scroll">
+                    <div class="testimonial-grid-horizontal">
+                        <div class="testimonial-card-v2">
+                            <div class="testimonial-v2-header">
+                                <div class="testimonial-v2-stars">★★★★★</div>
+                                <span class="testimonial-v2-date">Il y a 2 jours</span>
+                            </div>
+                            <p class="testimonial-v2-text">"J'ai déposé ma demande le matin, et j'ai trouvé une maison l'après-midi même. Très efficace !"</p>
+                            <div class="testimonial-v2-footer">
+                                <div class="testimonial-v2-avatar">AF</div>
+                                <div class="testimonial-v2-info">
+                                    <span class="testimonial-v2-name">Abdoul F.</span>
+                                    <span class="testimonial-v2-city">Ouagadougou</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-card-v2">
-                        <div class="testimonial-v2-header">
-                            <div class="testimonial-v2-stars">★★★★★</div>
-                            <span class="testimonial-v2-date">Il y a 1 semaine</span>
-                        </div>
-                        <p class="testimonial-v2-text">"C'est simple et ça évite de perdre du temps. Les démarcheurs qui m'ont appelé étaient sérieux."</p>
-                        <div class="testimonial-v2-footer">
-                            <div class="testimonial-v2-avatar">ST</div>
-                            <div class="testimonial-v2-info">
-                                <span class="testimonial-v2-name">Sali T.</span>
-                                <span class="testimonial-v2-city">Ouagadougou</span>
+                        <div class="testimonial-card-v2">
+                            <div class="testimonial-v2-header">
+                                <div class="testimonial-v2-stars">★★★★★</div>
+                                <span class="testimonial-v2-date">Il y a 1 semaine</span>
+                            </div>
+                            <p class="testimonial-v2-text">"C'est simple et ça évite de perdre du temps. Les démarcheurs qui m'ont appelé étaient sérieux."</p>
+                            <div class="testimonial-v2-footer">
+                                <div class="testimonial-v2-avatar">ST</div>
+                                <div class="testimonial-v2-info">
+                                    <span class="testimonial-v2-name">Sali T.</span>
+                                    <span class="testimonial-v2-city">Ouagadougou</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="testimonial-card-v2">
-                        <div class="testimonial-v2-header">
-                            <div class="testimonial-v2-stars">★★★★☆</div>
-                            <span class="testimonial-v2-date">Il y a 2 semaines</span>
-                        </div>
-                        <p class="testimonial-v2-text">"Une solution moderne pour l'immobilier au Burkina. J'ai pu trouver mon terrain rapidement."</p>
-                        <div class="testimonial-v2-footer">
-                            <div class="testimonial-v2-avatar">DO</div>
-                            <div class="testimonial-v2-info">
-                                <span class="testimonial-v2-name">Drissa O.</span>
-                                <span class="testimonial-v2-city">Ouagadougou</span>
+                        <div class="testimonial-card-v2">
+                            <div class="testimonial-v2-header">
+                                <div class="testimonial-v2-stars">★★★★☆</div>
+                                <span class="testimonial-v2-date">Il y a 2 semaines</span>
+                            </div>
+                            <p class="testimonial-v2-text">"Une solution moderne pour l'immobilier au Burkina. J'ai pu trouver mon terrain rapidement."</p>
+                            <div class="testimonial-v2-footer">
+                                <div class="testimonial-v2-avatar">DO</div>
+                                <div class="testimonial-v2-info">
+                                    <span class="testimonial-v2-name">Drissa O.</span>
+                                    <span class="testimonial-v2-city">Ouagadougou</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -287,7 +298,7 @@
                     <h5 class="link-group-title">Particuliers</h5>
                     <ul>
                         <li><a href="index.html">Faire une demande</a></li>
-                        <li><a href="annuaires.html">Annuaire</a></li>
+                        <li><a href="annuaires.html">Listes démarcheurs</a></li>
                         <li><a href="faq.html">Comment ça marche</a></li>
                     </ul>
                 </div>
@@ -366,12 +377,13 @@
     <div class="modal-overlay" id="rent-modal">
         <div class="modal-box">
             <div class="modal-header">
-                <h3 class="modal-title">Rechercher une location</h3>
+                <h3 class="modal-title">Trouver une maison (Location)</h3>
                 <button class="modal-close-btn" id="close-rent-modal">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
             <div class="modal-body">
+                <p class="modal-info-text">Diffusez votre besoin de location aux démarcheurs.</p>
                 <form id="rent-request-form">
                     <div class="form-group">
                         <label class="form-label">Ville</label>
@@ -379,12 +391,31 @@
                             <select required><option value="Ouagadougou">Ouagadougou</option></select>
                         </div>
                     </div>
+
+                    <!-- Options Avancées Switch -->
+                    <div class="form-group advanced-toggle-group">
+                        <label class="switch-label">Options avancées</label>
+                        <label class="switch">
+                            <input type="checkbox" id="rent-advanced-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <!-- Quartier Search (Hidden by default) -->
+                    <div class="form-group" id="rent-quartier-group" style="display: none;">
+                        <label class="form-label">Quartier</label>
+                        <div class="quartier-search-container">
+                            <input type="text" id="rent-quartier-input" placeholder="Tapez pour rechercher un quartier..." autocomplete="off">
+                            <div id="rent-quartier-results" class="quartier-results-list"></div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="form-label">Type de bien</label>
                         <div class="select-wrapper">
                             <select id="rent-type" required>
                                 <option value="" disabled>Choisir un type...</option>
-                                <option value="Maison" selected>Maison </option>
+                                <option value="Maison" selected>Maison</option>
                                 <option value="Magasin">Magasin</option>
                                 <option value="Entrepôt">Entrepôt</option>
                                 <option value="Bureau">Bureau</option>
@@ -411,12 +442,13 @@
     <div class="modal-overlay" id="buy-modal">
         <div class="modal-box">
             <div class="modal-header">
-                <h3 class="modal-title">Rechercher un achat</h3>
+                <h3 class="modal-title">Trouver un terrain (Achat)</h3>
                 <button class="modal-close-btn" id="close-buy-modal">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </button>
             </div>
             <div class="modal-body">
+                <p class="modal-info-text">Diffusez votre besoin d'achat aux démarcheurs.</p>
                 <form id="buy-request-form">
                     <div class="form-group">
                         <label class="form-label">Ville</label>
@@ -424,6 +456,25 @@
                             <select required><option value="Ouagadougou">Ouagadougou</option></select>
                         </div>
                     </div>
+
+                    <!-- Options Avancées Switch -->
+                    <div class="form-group advanced-toggle-group">
+                        <label class="switch-label">Options avancées</label>
+                        <label class="switch">
+                            <input type="checkbox" id="buy-advanced-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+
+                    <!-- Quartier Search (Hidden by default) -->
+                    <div class="form-group" id="buy-quartier-group" style="display: none;">
+                        <label class="form-label">Quartier</label>
+                        <div class="quartier-search-container">
+                            <input type="text" id="buy-quartier-input" placeholder="Tapez pour rechercher un quartier..." autocomplete="off">
+                            <div id="buy-quartier-results" class="quartier-results-list"></div>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="form-label">Type de bien</label>
                         <div class="select-wrapper">
@@ -452,6 +503,7 @@
     </div>
 
     <!-- Link to JavaScript logic -->
+    <script src="ouaga-quartier.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
