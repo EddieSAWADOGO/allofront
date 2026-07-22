@@ -16,21 +16,21 @@
     <meta property="og:url" content="https://allodemarcheur.bf/">
     <meta property="og:title" content="allodemarcheur | L'immobilier simplifié au Burkina Faso">
     <meta property="og:description" content="Diffusez votre demande à des centaines de démarcheurs certifiés et trouvez votre bien rapidement.">
-    <meta property="og:image" content="https://allodemarcheur.bf/allodemarcheur.jpeg">
+    <meta property="og:image" content="https://allodemarcheur.bf/allodemarcheur.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://allodemarcheur.bf/">
     <meta property="twitter:title" content="allodemarcheur | L'immobilier simplifié au Burkina Faso">
     <meta property="twitter:description" content="Diffusez votre demande à des centaines de démarcheurs certifiés et trouvez votre bien rapidement.">
-    <meta property="twitter:image" content="https://allodemarcheur.bf/allodemarcheur.jpeg">
+    <meta property="twitter:image" content="https://allodemarcheur.bf/allodemarcheur.webp">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="allodemarcheur.jpeg">
-    <!-- Google Fonts: Poppins -->
+    <link rel="icon" type="image/jpeg" href="allodemarcheur.webp">
+    <!-- Google Fonts: Poppins + Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <!-- Link to Custom Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -41,7 +41,7 @@
         <div class="header-container">
             <div class="logo-area">
                 <a href="index.html">
-                    <img src="allodemarcheur.jpeg" alt="Logo allodemarcheur" class="logo-img">
+                    <img src="allodemarcheur.webp" alt="Logo allodemarcheur" class="logo-img">
                 </a>
             </div>
 
@@ -85,25 +85,55 @@
                 <!-- Right (Top on Mobile): Illustration Card -->
                 <div class="hero-visual-card" style="order: -1;">
                     <div class="visual-card-inner">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80" alt="Recherche immobilière Burkina" class="visual-card-img" style="min-height: 300px;">
+                        <div class="hero-carousel" aria-label="Galerie d’images immobilières">
+                            <div class="hero-carousel-track" id="hero-carousel-track">
+                                
+                                <img src="images/ux2.webp" alt="Terrain et investissement immobilier" class="hero-carousel-slide visual-card-img active" loading="eager" decoding="async" fetchpriority="high" width="1200" height="800">
+                                <img src="images/ux3.webp" alt="Projet immobilier moderne" class="hero-carousel-slide visual-card-img" loading="lazy" decoding="async" width="1200" height="800">
+                                <img src="images/ux4.webp" alt="Recherche d’un bien immobilier" class="hero-carousel-slide visual-card-img" loading="lazy" decoding="async" width="1200" height="800">
+                                <img src="images/ux7.webp" alt="Maison et architecture" class="hero-carousel-slide visual-card-img" loading="lazy" decoding="async" width="1200" height="800">
+                                <img src="images/ux8.webp" alt="Bien immobilier à louer" class="hero-carousel-slide visual-card-img" loading="lazy" decoding="async" width="1200" height="800">
+                            </div>
+                            <div class="hero-carousel-dots" aria-label="Choix d’image">
+                                <span class="hero-dot active" data-slide="0"></span>
+                                <span class="hero-dot" data-slide="1"></span>
+                                <span class="hero-dot" data-slide="2"></span>
+                                <span class="hero-dot" data-slide="3"></span>
+                                <span class="hero-dot" data-slide="4"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Left (Bottom on Mobile): Text and Search Buttons -->
                 <div class="hero-text-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <h1 class="hero-title big-title">Une seule demande,<br>plusieurs propositions de maisons ;<br>sans perdre de temps</h1>
+                    <h1 class="hero-title big-title">
+                        <span class="hero-title-line">Une seule demande</span>
+                        <span class="hero-title-line">plusieurs propositions de maison</span>
+                        <span class="hero-title-line">selon votre budget</span>
+                    </h1>
                     <p class="hero-paragraph highlight-paragraph">
-                        Touchez plus de 500 démarcheurs en un clic.
+                        Touchez plus de 500 démarcheurs certifiés en un clic.
                     </p>
+
+                    <div class="hero-search-panel">
+                        <div class="hero-search-badge" aria-label="Recherche">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2" fill="none"></circle>
+                                <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
+                            </svg>
+                            <span>Trouver</span>
+                        </div>
+                    </div>
 
                     <div class="hero-search-actions">
                         <button class="btn btn-primary btn-lg" id="btn-open-rent-modal">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span>Trouver maison</span>
+                            <span>Ma maison à louer</span>
                         </button>
                         <button class="btn btn-secondary btn-lg" id="btn-open-buy-modal" style="border: 2px solid var(--color-primary); color: var(--color-primary);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span>Trouver terrain</span>
+                            <span>Mon terrain à acheter</span>
                         </button>
                     </div>
                 </div>
@@ -121,7 +151,7 @@
                     </div>
                     <div class="presentation-image-container">
                         <!-- Une image illustrant la modernité et la confiance immobilière -->
-                        <img src="multi-biens.png" alt="Innovation Immobilière au Burkina Faso">
+                        <img src="images/ux1.webp" alt="Innovation Immobilière au Burkina Faso" loading="lazy" decoding="async" width="800" height="600">
                     </div>
                 </div>
             </section>
@@ -289,7 +319,7 @@
         <div class="footer-container">
             <div class="footer-branding">
                 <div class="logo-area">
-                    <img src="allodemarcheur.jpeg" alt="Logo allodemarcheur" class="logo-img footer-logo">
+                    <img src="allodemarcheur.webp" alt="Logo allodemarcheur" class="logo-img footer-logo">
                 </div>
                 <p class="footer-tagline">La plateforme n°1 au Burkina qui connecte les démarcheurs professionnels et les chercheurs de biens immobiliers en un clic.</p>
             </div>

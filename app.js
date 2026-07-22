@@ -81,6 +81,64 @@ const mockBrokers = [
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
 
+    // --- Hero Carousel ---
+    const heroSlides = Array.from(document.querySelectorAll(".hero-carousel-slide"));
+    const heroDots = Array.from(document.querySelectorAll(".hero-dot"));
+
+    if (heroSlides.length > 1) {
+        let currentSlide = 0;
+        let autoRotateTimer;
+
+        const showHeroSlide = (index) => {
+            currentSlide = (index + heroSlides.length) % heroSlides.length;
+            heroSlides.forEach((slide, slideIndex) => {
+                slide.classList.toggle("active", slideIndex === currentSlide);
+            });
+            heroDots.forEach((dot, dotIndex) => {
+                dot.classList.toggle("active", dotIndex === currentSlide);
+            });
+        };
+
+        const startAutoRotate = () => {
+            clearInterval(autoRotateTimer);
+            autoRotateTimer = setInterval(() => {
+                showHeroSlide(currentSlide + 1);
+            }, 4000);
+        };
+
+        heroDots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                showHeroSlide(Number(dot.getAttribute("data-slide")));
+                startAutoRotate();
+            });
+        });
+
+        const carousel = document.querySelector(".hero-carousel");
+        if (carousel) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carousel.addEventListener("touchstart", (event) => {
+                touchStartX = event.changedTouches[0].clientX;
+            }, { passive: true });
+
+            carousel.addEventListener("touchend", (event) => {
+                touchEndX = event.changedTouches[0].clientX;
+                const delta = touchEndX - touchStartX;
+
+                if (delta > 50) {
+                    showHeroSlide(currentSlide - 1);
+                } else if (delta < -50) {
+                    showHeroSlide(currentSlide + 1);
+                }
+                startAutoRotate();
+            }, { passive: true });
+        }
+
+        showHeroSlide(0);
+        startAutoRotate();
+    }
+
     // --- Modal Definitions ---
     const profileModal = document.getElementById("profile-modal");
     const alertModal = document.getElementById("alert-modal");

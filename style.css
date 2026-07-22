@@ -636,9 +636,56 @@ select {
     object-fit: cover;
 }
 
-.visual-card-content {
-    padding: 24px;
-    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 100%);
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+
+.hero-carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+}
+
+.hero-carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.hero-carousel-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hero-carousel-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-dot.active {
+    background: var(--color-primary);
+    transform: scale(1.15);
 }
 
 .visual-badge {
@@ -2327,7 +2374,24 @@ select {
 
     .hero-visual-card {
         max-width: 600px;
+        width: 100%;
         margin: 0 auto;
+    }
+
+    .visual-card-inner {
+        min-height: 320px;
+    }
+
+    .hero-carousel {
+        min-height: 320px;
+    }
+
+    .hero-carousel-track {
+        min-height: 320px;
+    }
+
+    .visual-card-img {
+        min-height: 320px;
     }
 }
 
@@ -2335,6 +2399,27 @@ select {
 }
 
 @media (max-width: 600px) {
+    .hero-visual-card {
+        width: 100%;
+    }
+
+    .visual-card-inner {
+        min-height: 260px;
+        border-radius: 12px;
+    }
+
+    .hero-carousel {
+        min-height: 260px;
+    }
+
+    .hero-carousel-track {
+        min-height: 260px;
+    }
+
+    .visual-card-img {
+        min-height: 260px;
+    }
+
     .feedback-container {
         padding: 32px 20px;
     }
@@ -2805,7 +2890,7 @@ select {
     }
 
     .register-imagery {
-        display: none; /* Hide imagery ad on smaller devices to keep registration focused */
+        display: block;
     }
 
     .file-upload-row {
@@ -3174,22 +3259,85 @@ select {
    ========================================================================== */
 
 /* Big Title Styling */
-.big-title {
-    font-size: clamp(1.5rem, 4.2vw, 2.8rem) !important;
+.hero-title.big-title {
+    font-size: clamp(1.75rem, 2.2vw, 2.6rem) !important;
     font-weight: 800 !important;
-    line-height: 1.3 !important;
+    line-height: 1.05 !important;
     text-align: center !important;
     margin-bottom: 24px !important;
     color: var(--color-bg-dark) !important;
-    max-width: 900px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Montserrat', sans-serif !important;
+    text-transform: uppercase;
+    white-space: normal !important;
+}
+
+.hero-title.big-title .hero-title-line {
+    display: block;
+    width: 100%;
+}
+
+.hero-title.big-title .hero-title-line {
+    color: var(--color-text-main);
+}
+
+.hero-search-panel {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.hero-search-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background-color: rgba(234, 88, 12, 0.14);
+    color: var(--color-primary);
+    padding: 18px 26px;
+    border-radius: 999px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    box-shadow: 0 18px 48px rgba(234, 88, 12, 0.16);
+}
+
+.hero-search-badge svg {
+    width: 36px;
+    height: 36px;
 }
 
 .highlight-paragraph {
     font-weight: 600;
     color: var(--color-primary);
-    font-size: 1.3rem !important;
+    font-size: 1rem !important;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-search-actions {
+    gap: 12px;
+}
+
+.hero-search-actions .btn {
+    flex: 1 1 260px;
+    min-width: 200px;
+    max-width: 280px;
+    padding: 14px 22px;
+    font-size: 1rem;
+}
+
+.btn-secondary {
+    background-color: var(--color-bg-base);
+    border-color: var(--color-text-main);
+    color: var(--color-text-main);
+}
+
+.btn-secondary:hover {
+    background-color: #f4f4f4;
 }
 
 /* Navigation Dropdown */
