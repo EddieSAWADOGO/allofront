@@ -57,7 +57,13 @@
             <!-- Navigation Links -->
             <nav class="nav-links" id="nav-links">
                 <a href="index.html" class="nav-link active">Accueil</a>
-                <a href="annuaires.html" class="nav-link">Listes démarcheurs</a>
+                <a href="annuaires.html" class="nav-link">Listes des démarcheurs</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Espace Agence</a>
+                    <div class="dropdown-content">
+                        <a href="#">Bientôt disponible</a>
+                    </div>
+                </div>
                 <div class="nav-dropdown">
                     <a href="demarcheur.html" class="nav-link">Espace Démarcheur</a>
                     <div class="dropdown-content">
@@ -108,12 +114,14 @@
                 <!-- Left (Bottom on Mobile): Text and Search Buttons -->
                 <div class="hero-text-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
                     <h1 class="hero-title big-title">
-                        <span class="hero-title-line">Une seule demande</span>
-                        <span class="hero-title-line">plusieurs propositions de maison</span>
-                        <span class="hero-title-line">selon votre budget</span>
+                        <span class="hero-title-line">Plus de <span style="color: var(--color-primary);">500 démarcheurs</span></span>
+                        <span class="hero-title-line">sont au courant de</span>
+                        <span class="hero-title-line">votre besoin de location</span>
+                        <span class="hero-title-line" style="color: var(--color-primary);">en un clic et</span>
+                        <span class="hero-title-line" style="color: var(--color-primary);">selon votre budget.</span>
                     </h1>
-                    <p class="hero-paragraph highlight-paragraph">
-                        Touchez plus de 500 démarcheurs certifiés en un clic.
+                    <p class="hero-paragraph highlight-paragraph" style="color: var(--color-text-main); font-weight: 700; text-transform: uppercase;">
+                        Une seule demande, plusieurs propositions selon votre budget.
                     </p>
 
                     <div class="hero-search-panel">
@@ -122,18 +130,18 @@
                                 <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="2" fill="none"></circle>
                                 <line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"></line>
                             </svg>
-                            <span>Trouver</span>
+                            <span>Recherche</span>
                         </div>
                     </div>
 
                     <div class="hero-search-actions">
                         <button class="btn btn-primary btn-lg" id="btn-open-rent-modal">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span>Ma maison à louer</span>
+                            <span class="pulse-text">Une maison à louer</span>
                         </button>
                         <button class="btn btn-secondary btn-lg" id="btn-open-buy-modal" style="border: 2px solid var(--color-primary); color: var(--color-primary);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            <span>Mon terrain à acheter</span>
+                            <span class="pulse-text">Un terrain à acheter</span>
                         </button>
                     </div>
                 </div>
@@ -205,7 +213,7 @@
             <!-- Annuaire Section Preview -->
             <section class="directory-section">
                 <div class="section-header">
-                    <h2 class="section-title">Listes démarcheurs</h2>
+                    <h2 class="section-title">Listes des démarcheurs</h2>
                     <p class="section-subtitle">Une sélection de professionnels vérifiés par notre équipe.</p>
                 </div>
 
@@ -328,7 +336,7 @@
                     <h5 class="link-group-title">Particuliers</h5>
                     <ul>
                         <li><a href="index.html">Faire une demande</a></li>
-                        <li><a href="annuaires.html">Listes démarcheurs</a></li>
+                        <li><a href="annuaires.html">Listes des démarcheurs</a></li>
                         <li><a href="faq.html">Comment ça marche</a></li>
                     </ul>
                 </div>
@@ -338,6 +346,12 @@
                         <li><a href="demarcheur.html">Rejoindre le réseau</a></li>
                         <li><a href="demarcheur.html#packs">Acheter des packs SMS</a></li>
                         <li><a href="demarcheur.html#dashboard">Mon Compte</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h5 class="link-group-title">Agences</h5>
+                    <ul>
+                        <li><a href="#">Espace Agence (Bientôt)</a></li>
                     </ul>
                 </div>
                 <div class="link-group">
