@@ -11,7 +11,7 @@ const mockBrokers = [
         phone: "70123456",
         rating: "4.8",
         smsReceived: "142",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+        avatar: "1234.png",
         proCard: "https://images.unsplash.com/photo-1633113089631-6456cccaadad?w=600&q=80"
     },
     {
