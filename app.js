@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clearInterval(autoRotateTimer);
             autoRotateTimer = setInterval(() => {
                 showHeroSlide(currentSlide + 1);
-            }, 4000);
+            }, 1500);
         };
 
         heroDots.forEach((dot) => {
