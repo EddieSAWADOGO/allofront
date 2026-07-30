@@ -86,13 +86,23 @@
                 <p class="section-subtitle">Trouvez des professionnels certifiés par ville et par spécialité.</p>
             </div>
 
-            <div class="directory-filters" style="margin-top: 40px;">
-                <div class="search-box">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <input type="text" id="directory-search-input" placeholder="Rechercher par nom, ville ou spécialité...">
+            <div class="directory-filters" style="margin-top: 40px; flex-direction: column; gap: 15px;">
+                <div class="filter-group" style="display: flex; gap: 12px; width: 100%; max-width: 900px; flex-wrap: wrap; justify-content: center; margin: 0 auto;">
+                    <div class="select-wrapper" style="flex: 1; min-width: 200px;">
+                        <select id="city-filter" aria-label="Filtrer par ville">
+                            <option value="Ouagadougou">Ouagadougou</option>
+                            <option value="Bobo-Dioulasso">Bobo-Dioulasso</option>
+                            <option value="Koudougou">Koudougou</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-box" style="flex: 1; min-width: 250px; max-width: none;">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="name-search-input" placeholder="Rechercher par nom...">
+                    </div>
                 </div>
             </div>
 

@@ -205,7 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Directory Rendering ---
     const directoryGridHome = document.getElementById("directory-grid"); // Preview on Index
     const directoryGridFull = document.getElementById("full-directory-grid"); // Full on Annuaire
-    const searchInput = document.getElementById("directory-search-input");
+    const cityFilter = document.getElementById("city-filter");
+    const specialtyFilter = document.getElementById("specialty-filter");
+    const nameSearchInput = document.getElementById("name-search-input");
 
     function renderBrokers(list, container, limit = null) {
         if (!container) return;
@@ -386,19 +388,27 @@ document.addEventListener("DOMContentLoaded", () => {
     renderBrokers(mockBrokers, directoryGridHome, 5);
     renderBrokers(mockBrokers, directoryGridFull);
 
-    // Search Logic
-    if (searchInput) {
-        searchInput.addEventListener("input", (e) => {
-            const val = e.target.value.toLowerCase();
-            const filtered = mockBrokers.filter(b =>
-                b.firstname.toLowerCase().includes(val) ||
-                b.lastname.toLowerCase().includes(val) ||
-                b.city.toLowerCase().includes(val) ||
-                b.specialties.toLowerCase().includes(val)
-            );
-            renderBrokers(filtered, directoryGridFull);
+    // Combined Filter Logic
+    function applyDirectoryFilters() {
+        const cityVal = cityFilter ? cityFilter.value.toLowerCase() : "";
+        const specVal = specialtyFilter ? specialtyFilter.value.toLowerCase() : "";
+        const nameVal = nameSearchInput ? nameSearchInput.value.toLowerCase() : "";
+
+        const filtered = mockBrokers.filter(b => {
+            const matchesCity = !cityVal || b.city.toLowerCase().includes(cityVal);
+            const matchesSpec = !specVal || b.specialties.toLowerCase().includes(specVal);
+            const matchesName = !nameVal ||
+                                b.firstname.toLowerCase().includes(nameVal) ||
+                                b.lastname.toLowerCase().includes(nameVal);
+            return matchesCity && matchesSpec && matchesName;
         });
+
+        renderBrokers(filtered, directoryGridFull);
     }
+
+    if (cityFilter) cityFilter.addEventListener("change", applyDirectoryFilters);
+    if (specialtyFilter) specialtyFilter.addEventListener("change", applyDirectoryFilters);
+    if (nameSearchInput) nameSearchInput.addEventListener("input", applyDirectoryFilters);
 
     // --- Search Modals Logic ---
     const btnOpenRent = document.getElementById("btn-open-rent-modal");
